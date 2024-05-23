@@ -57,6 +57,16 @@ def save_file_dialog(default_dir, cropped_image):
     if file_path:
         cropped_image.save(file_path)
         print(f"> Cropped screenshot saved to {file_path}. size: {cropped_image.size}")
+        # copy the file to the clipboard
+        # if windows
+        import shutil
+        if os.name == "nt":
+            # if the executable 'clip' exists in the system
+            if shutil.which("clip"):
+                os.system(f"echo {file_path} | clip")
+                print("> File path copied to clipboard.")                
+            # open the image in the default image viewer
+            os.system(f"start {file_path}")
     root.destroy()
 
 def take_gui_screenshot():
