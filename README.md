@@ -20,10 +20,10 @@ python ghd_screenshot.py
 
 I have assigned a hotkey to the tool using *autohotkey*, so I can take a screenshot by pressing `Win + Shift + Q`.
 
-**note for myself:** place a shortcut named `ghd-screenshot.pyw` in `C:\`.
+**note for myself:** place the script named `ghd-screenshot.pyw` in `C:\`.
 
 **autohotkey line:** 
-`#+Q::Run, python C:\ghd-screenshot.py`
+`#+Q::Run, pythonw C:\ghd-screenshot.py`
 
 ## Credits
 Gholamreza Dar x ChatGPT! 2024
