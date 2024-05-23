@@ -3,7 +3,7 @@ a tool for automating the process of taking a region screenshot, giving it a nam
 
 I plan to use it to efficiently take screenshots of papers I read, and later upload them to overleaf for my M.Sc. thesis.
 
-problem with windows snipping tool? 
+problem with windows snipping tool? you need about 2-3 more clicks to do the same!
 
 ![demo](demo.gif)
 
