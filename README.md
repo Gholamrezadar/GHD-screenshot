@@ -3,6 +3,15 @@ a tool for automating the process of taking a region screenshot, giving it a nam
 
 I plan to use it to efficiently take screenshots of papers I read, and later upload them to overleaf for my M.Sc. thesis.
 
+![demo](demo.gif)
+
+## Features
+- take a region screenshot
+- give the screenshot a name
+- save the screenshot to a file
+- automatically open the file in the default image viewer
+- copy the file path to the clipboard
+
 ## Requirements
 - python3
 - pillow
