@@ -9,25 +9,22 @@
 # 7. close the pygame window.
 # 8. exit the program.
 
-# pip install pygame pillow
-
-import sys
-import os
-import shutil
-import datetime
 
 import pygame
-
+import sys
+import os
 import tkinter as tk
 from tkinter import filedialog
 from PIL import ImageGrab, Image
+import datetime
 
 CUSTOM_DIR = "~/Pictures/Screenshots"
-WINDOW_SIZE = (960, 540) # in this version, the window size will be the same as the screen size after pygame is initialized. so this doesn't matter.
-SCREEN_SIZE = (1920, 1080) # we will get the screen size from the system later. so this doesn't matter either.
+WINDOW_SIZE = (960, 540)
+SCREEN_SIZE = (1920, 1080)
+# get the screen size from the system
 
+# Function to take a screenshot
 def take_screenshot(window_size=(960, 540)):
-    '''Take a screenshot of the screen and save it to a temp file.'''
     screenshot = ImageGrab.grab()
     screenshot.save("screenshot.png")
     screenshot_resized = screenshot.resize(window_size, Image.BILINEAR)
@@ -131,6 +128,7 @@ def take_gui_screenshot():
                     default_dir = os.path.expanduser(CUSTOM_DIR)
                     if not os.path.exists(default_dir):
                         os.makedirs(default_dir)
+
                     save_file_dialog(default_dir, cropped_image)
 
                     # Step 7: Close the pygame window
@@ -142,18 +140,15 @@ def take_gui_screenshot():
             elif event.type == pygame.MOUSEMOTION:
                 if drawing:
                     end_pos = event.pos
-                    # repaint the background image
                     screen.blit(screenshot_surface, (0, 0))
-                    
-                    # calculate the rect coordinates no matter which corner we start from
+                    # draw the rectangle no matter which corner we start
                     x1, y1 = start_pos
                     x2, y2 = end_pos
                     rect = pygame.Rect(min(x1, x2), min(y1, y2), abs(x2 - x1), abs(y2 - y1))
-
-                    # draw the rectangle
                     LINE_WIDTH = 1
                     LINE_COLOR = (255, 0, 0) # red
                     pygame.draw.rect(screen, LINE_COLOR, rect, LINE_WIDTH)
+
                     pygame.display.flip()
 
 
